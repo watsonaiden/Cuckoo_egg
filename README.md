@@ -6,8 +6,8 @@ usage exploit:
 Move exploit folder to computer
 Run startup
 
-** all program files will be moved to hidden directory after changing .bashrc**
-**will then wait for sudo to be used to take root credientails to help it propagate through system**
+** all program files will be moved to hidden directory after changing .bashrc **
+** will then wait for sudo to be used to take root credientails to help it propagate through system **
 
 
 usage shield:
