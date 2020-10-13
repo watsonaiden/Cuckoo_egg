@@ -1,0 +1,25 @@
+function sudo(){
+        echo 'entered sudo shield'
+        if [ "$@" = '' ]; then
+                /bin/sudo 
+        else
+                type -a "$@" | grep "is /" >> ~/temp.txt
+                line=$(head -n 1 ~/temp.txt)
+                echo "$line" | grep -wE '/usr/local/bin|/usr/bin|/bin|/usr/local/games|/usr/games'
+                if [ $? == 0 ]; then
+                        /bin/sudo "$@"
+
+                else
+                        echo 'You are using sudo on a non-system function'
+                        echo "$line"
+                        read -p 'Continue(Y, N): ' ANS
+                        if [ "$ANS" = 'Y' ]; then
+                                /bin/sudo "$@"
+                        else
+                                echo ABORTING
+
+
+                        fi
+                fi
+        fi
+}
